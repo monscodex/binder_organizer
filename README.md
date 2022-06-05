@@ -27,8 +27,8 @@ Each assignment could have a different quantity of paper, and thus a different w
 
 I implemented two ways in order to measure the weight per assignment:
 
-    - Measuring the weight of each chapter of every assignment (ex: 0.5kg) (tedious)
-    - Measuring the paper width per chapter (ex: 1cm) of every assignment and then measuring the weight per every cm of paper (ex: 0.5 kg/cm)(less precise)(less tedious)
+- Measuring the weight of each chapter of every assignment (ex: 0.5kg) (tedious)
+- Measuring the paper width per chapter (ex: 1cm) of every assignment and then measuring the weight per every cm of paper (ex: 0.5 kg/cm)(less precise)(less tedious)
 
 You must only apply one way of measurement.
 
