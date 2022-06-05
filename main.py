@@ -8,14 +8,14 @@ def main():
     binder_organizer = BinderOrganizer('configuration.cfg')
 
     best_3_binder_combination = binder_organizer.get_best_combination_for_n_binders(3)
-    print(f"With 3 binders, the BEST combination of assignments is {best_3_binder_combination['assignments_combination']} with an average carried weight of {best_3_binder_combination['average_carried_weight']} kg\n")
+    print(f"With 3 binders, the BEST combination of assignments is {best_3_binder_combination['assignments_combination']} with an average carried weight of {best_3_binder_combination['average_carried_weight']} Kg\n")
 
     worse_2_binder_combination = binder_organizer.get_best_combination_for_n_binders(2, give_worse_combination=True)
     worse_2_binder_combination = worse_2_binder_combination['worse']
-    print(f"With 2 binders, the WORSE combination of assignments is {worse_2_binder_combination['assignments_combination']} with an average carried weight of {worse_2_binder_combination['average_carried_weight']} kg\n")
+    print(f"With 2 binders, the WORSE combination of assignments is {worse_2_binder_combination['assignments_combination']} with an average carried weight of {worse_2_binder_combination['average_carried_weight']} Kg\n")
 
     absolute_best_combination = binder_organizer.get_absolute_best_combination()
-    print(f"The ABSOLUTE BEST combination with the given options uses {absolute_best_combination['number_of_binders']} binders.\nIt is {absolute_best_combination['assignments_combination']} with an average carried weight of {absolute_best_combination['average_carried_weight']} kg\n")
+    print(f"The ABSOLUTE BEST combination with the given options uses {absolute_best_combination['number_of_binders']} binders.\nIt is {absolute_best_combination['assignments_combination']} with an average carried weight of {absolute_best_combination['average_carried_weight']} Kg\n")
 
 class BinderOrganizer:
     def __init__(self, config_file_path):

@@ -27,8 +27,8 @@ Each assignment could have a different quantity of paper, and thus a different w
 
 I implemented two ways in order to measure the weight per assignment:
 
-- Measuring the weight of each chapter of every assignment (ex: 0.5kg) (tedious)
-- Measuring the paper width per chapter (ex: 1cm) of every assignment and then measuring the weight per every cm of paper (ex: 0.5 kg/cm)(less precise)(less tedious)
+- Measuring the weight of each chapter of every assignment (ex: 0.5Kg) (tedious)
+- Measuring the paper width per chapter (ex: 1cm) of every assignment and then measuring the weight per every cm of paper (ex: 0.5 Kg/cm)(less precise)(less tedious)
 
 You must only apply one way of measurement.
 
@@ -40,7 +40,7 @@ It will be written in the following way:
 
 Note: each assignment must be specified in a new line.
 
-Ex in kg:
+Ex in Kg:
 ```
 ALGEBRA = 0.5
 MATH = 1.5
@@ -99,8 +99,8 @@ THURSDAY = ENGLISH
 ```
 
 ### [GENERAL]
-- EMPTY_BINDER_WEIGHT: The weight of an empty binder (Ex in kg: 0.4)
-- WEIGHT_PER_HEIGHT_UNIT: In the case you used the width measurement option, you must include the ratio between the weight and the width of the binder's content. (Ex in kg / cm: 0.3)
+- EMPTY_BINDER_WEIGHT: The weight of an empty binder (Ex in Kg: 0.4)
+- WEIGHT_PER_HEIGHT_UNIT: In the case you used the width measurement option, you must include the ratio between the weight and the width of the binder's content. (Ex in Kg / cm: 0.3)
 
 ## Best combination for n binders
 ```python
