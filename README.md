@@ -104,9 +104,9 @@ THURSDAY = ENGLISH
 
 ## Best combination for n binders
 ```python
-back_helper = BackHelper()
+binder_organizer = BinderOrganizer()
 
-best_2_binder_combination = back_helper.get_best_combination_for_n_binders(2)
+best_2_binder_combination = binder_organizer.get_best_combination_for_n_binders(2)
 ```
 
 
@@ -122,7 +122,7 @@ We may think that the best combination is the one where each assignment is on a 
 Some assignments are so light-weight, that it would be heavier carrying the weight of an empty binder + the weight of the assignment than carrying the weight of other assignments too!
 
 ```python
-back_helper = BackHelper()
+binder_organizer = BinderOrganizer()
 
-absolute_best_combination = back_helper.get_absolute_best_combination()
+absolute_best_combination = binder_organizer.get_absolute_best_combination()
 ```
