@@ -16,14 +16,14 @@ class Binder:
 
 @dataclass
 class BinderCombination:
-    average_carried_weight: float
     assignments_combination: list[list[str]]
+    average_carried_weight: float
 
 
 def main():
     binder_organizer = BinderOrganizer("configuration.cfg")
 
-    best_3_binder_combination = binder_organizer.get_best_combination_for_n_binders(3)
+    best_3_binder_combination = binder_organizer.get_best_combination_for_n_binders(2)
     print(
         f"With 3 binders, the BEST combination of assignments is {best_3_binder_combination.assignments_combination} with an average carried weight of {best_3_binder_combination.average_carried_weight} Kg\n"
     )
@@ -87,7 +87,9 @@ class BinderOrganizer:
         # Some assignments are so light-weight, that it would be heavier carrying the weight of an empty binder + the weight of the assignment than carrying the weight of other assignments too
 
         n = 1
-        prior_best_combination = BinderCombination(inf, [])
+        prior_best_combination = BinderCombination(
+            assignments_combination=[], average_carried_weight=inf
+        )
         while True:
             current_best_combination = self.get_best_combination_for_n_binders(n)
 
@@ -101,8 +103,12 @@ class BinderOrganizer:
     def get_best_combination_for_n_binders(
         self, number_of_binders: int, give_worse_combination: bool = False
     ) -> BinderCombination:
-        best_combination = BinderCombination(inf, [])
-        worse_combination = BinderCombination(0, [])
+        best_combination = BinderCombination(
+            assignments_combination=[], average_carried_weight=inf
+        )
+        worse_combination = BinderCombination(
+            assignments_combination=[], average_carried_weight=0
+        )
 
         # Loop through all the possible partitions of the assignments according to the number of binders:
         # Ex with 2 binders: [['ENG', 'MATH'], []] : The first binder will contain English and Math and the second one won't contain anything
@@ -128,7 +134,6 @@ class BinderOrganizer:
             )
 
         return worse_combination if give_worse_combination else best_combination
-
 
     def try_read_specified_weight_per_assignment(self) -> Dict[str, float]:
         paper_weight_section = None
@@ -188,11 +193,13 @@ class BinderOrganizer:
     ) -> tuple[BinderCombination, BinderCombination]:
         if average_carried_weight > worse_combination.average_carried_weight:
             worse_combination = BinderCombination(
-                average_carried_weight, assignments_combination
+                assignments_combination=assignments_combination,
+                average_carried_weight=average_carried_weight,
             )
         elif average_carried_weight < best_combination.average_carried_weight:
             best_combination = BinderCombination(
-                average_carried_weight, assignments_combination
+                assignments_combination=assignments_combination,
+                average_carried_weight=average_carried_weight,
             )
 
         return best_combination, worse_combination
@@ -259,7 +266,7 @@ class BinderOrganizer:
         self, all_assignments_combinations: list[list[str]]
     ) -> list[Binder]:
         binders = [
-            Binder(assignments_combination, 0)
+            Binder(assignments=assignments_combination, weight=0)
             for assignments_combination in all_assignments_combinations
         ]
 
